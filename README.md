@@ -76,7 +76,7 @@ sequenceDiagram
     user->>browser: Write down new notes and click on submit button, browser renders new notes to the screen
     activate browser
     browser-->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
-    activate browser
+    activate server
     browser-->>server: new note
-    activate server    
+    deactivate server    
 ```
