@@ -1,6 +1,7 @@
 # Fullstack-Open-Practice
 ## Part 0
 ### Diagram for new note 
+```mermaid
 sequenceDiagram
     participant user
     participant browser
@@ -29,5 +30,6 @@ sequenceDiagram
     deactivate server
 
     Note right of browser: The browser executes the callback function that renders the notes
+```
 ### Diagram for single page app
 ### Diagram for new note in single page application
