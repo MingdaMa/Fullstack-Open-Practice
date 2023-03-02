@@ -1,6 +1,6 @@
 # Fullstack-Open-Practice
 ## Part 0
-### Diagram for new note 
+### 0.4 Diagram for new note 
 ```mermaid
 sequenceDiagram
     participant user
@@ -10,14 +10,14 @@ sequenceDiagram
     user->>browser: Write down new notes and click on submit button
     activate browser
     browser-->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
-    deactivate browser
+    activate browser
     browser-->>server: new note
     activate server
   
     
-    server->>browser: GET https://studies.cs.helsinki.fi/exampleapp/notes
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
     activate server
-    server-->>browser: all notes with newly added note
+    browser-->>server: all notes with newly added note
     deactivate server
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
@@ -39,5 +39,44 @@ sequenceDiagram
 
     Note right of browser: The browser executes the callback function that renders the notes
 ```
-### Diagram for single page app
-### Diagram for new note in single page application
+### 0.5 Diagram for single page app
+```mermaid
+sequenceDiagram
+    participant browser
+    participant server
+    
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa
+    activate server
+    server-->>browser: HTML document
+    deactivate server
+    
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    activate server
+    server-->>browser: the css file
+    deactivate server
+    
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+    activate server
+    server-->>browser: the JavaScript file
+    deactivate server
+    
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    activate server
+    server-->>browser: [{content: "hi", date: "2023-03-01T20:23:06.235Z"}, ... ]
+    deactivate server
+ 
+```
+### 0.6 Diagram for new note in single page application
+```mermaid
+sequenceDiagram
+    participant user
+    participant browser
+    participant server
+
+    user->>browser: Write down new notes and click on submit button, browser renders new notes to the screen
+    activate browser
+    browser-->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    activate browser
+    browser-->>server: new note
+    activate server    
+```
