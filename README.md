@@ -8,10 +8,16 @@ sequenceDiagram
     participant server
     
     user->>browser: Write down new notes and click on submit button
+    activate browser
+    browser-->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
     activate server
-    browser-->>server: json data
-    deactivate server
+    browser-->>server new note
     
+    server->>browser: GET https://studies.cs.helsinki.fi/exampleapp/notes
+    activate server
+    server-->>browser: all notes with newly added note
+    deactivate server
+
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
     activate server
     server-->>browser: the css file
