@@ -10,8 +10,10 @@ sequenceDiagram
     user->>browser: Write down new notes and click on submit button
     activate browser
     browser-->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+    deactivate browser
+    browser-->>server: new note
     activate server
-    browser-->>server new note
+  
     
     server->>browser: GET https://studies.cs.helsinki.fi/exampleapp/notes
     activate server
